@@ -13,6 +13,8 @@ end
 
 group :test, :development do
   gem 'dotenv', '~> 2.0'
+  gem 'faker'
+  gem 'hanami-fabrication'
 end
 
 group :test do
