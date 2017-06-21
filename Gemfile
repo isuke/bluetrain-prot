@@ -6,6 +6,8 @@ gem 'rake'
 
 gem 'pg'
 
+gem 'graphql'
+
 group :development do
   gem 'rubocop'
   gem 'shotgun'

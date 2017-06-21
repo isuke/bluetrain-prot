@@ -20,6 +20,7 @@ module ApiV1
       #
       load_paths << %w[
         controllers
+        types
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
