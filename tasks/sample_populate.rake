@@ -4,6 +4,7 @@ namespace :sample do
     Dir[File.expand_path('../../spec/support/fabricators', __FILE__) << '/*.rb'].each { |file| require file }
 
     populate_projects
+    populate_attrs
     populate_tasks
   end
 
@@ -11,6 +12,14 @@ namespace :sample do
     ProjectRepository.new.clear
 
     Fabricate.times(num, :project)
+  end
+
+  def populate_attrs(num = 3)
+    AttrRepository.new.clear
+
+    ProjectRepository.new.all.each do |project|
+      Fabricate.times(num, :attr, project_id: project.id)
+    end
   end
 
   def populate_tasks(num = 10)
