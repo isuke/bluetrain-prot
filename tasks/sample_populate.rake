@@ -8,7 +8,7 @@ namespace :sample do
     populate_tasks
   end
 
-  def populate_projects(num = 10)
+  def populate_projects(num = 2)
     ProjectRepository.new.clear
 
     Fabricate.times(num, :project)
@@ -26,7 +26,18 @@ namespace :sample do
     TaskRepository.new.clear
 
     ProjectRepository.new.all.each do |project|
-      Fabricate.times(num, :task, project_id: project.id)
+      attrs = AttrRepository.new.attrs_by_project(project.id)
+      num.times do
+        vals = {}.tap do |h|
+          attrs.each do |attr|
+            h[attr.id.to_s] = case attr.mold
+              when "Int"    then Faker::Number.number(3)
+              when "String" then Faker::Lorem.word
+            end
+          end
+        end
+        Fabricate.create(:task, project_id: project.id, vals: vals)
+      end
     end
   end
 end
