@@ -4,3 +4,14 @@
 # Ignore vendor
 /vendor
 
+# Ignore node_modules
+/apps/*/node_modules
+/apps/*/webpack-assets.json
+
+# Ignore public assets
+/public/bundle*
+/public/*.woff
+/public/*.woff2
+/public/*.ttf
+/public/*.eot
+/public/*.svg
