@@ -1,4 +1,4 @@
 project=bluetrain_prot
 architecture=container
 test=rspec
-template=erb
+template=slim
