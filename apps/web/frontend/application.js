@@ -23,7 +23,9 @@ Vue.use(VueRouter);
 //
 // Utils
 //
+require('./utils/exists.coffee');
 
 //
 // View Models
 //
+require('./view_models/Home.vue');

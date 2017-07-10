@@ -9,6 +9,8 @@ AllCops:
     - 'Rakefile'
     - 'db/migrations/*'
     - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'apps/web/node_modules/**/*'
   DisplayCopNames: true
 
 Rails:

@@ -30,10 +30,11 @@ namespace :sample do
       num.times do
         vals = {}.tap do |h|
           attrs.each do |attr|
-            h[attr.id.to_s] = case attr.mold
+            h[attr.id.to_s] = \
+              case attr.mold
               when "Int"    then Faker::Number.number(3)
               when "String" then Faker::Lorem.word
-            end
+              end
           end
         end
         Fabricate.create(:task, project_id: project.id, vals: vals)
